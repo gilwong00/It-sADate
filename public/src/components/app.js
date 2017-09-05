@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 const App = () => {
     return(
-        <div>Hello World</div>
+        <div className="test-style">Hello World</div>
     )
 }
 
