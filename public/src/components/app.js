@@ -1,9 +1,18 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+//importing Components
+import Greeter from './Greeter';
 
 const App = () => {
     return(
-        <div className="test-style">Hello World</div>
+        <BrowserRouter>
+            <div>
+                <Switch>
+                    <Route exact path="/" component={Greeter}/>
+                </Switch>
+            </div>
+        </BrowserRouter>
     )
 }
 
