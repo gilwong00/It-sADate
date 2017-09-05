@@ -6,7 +6,9 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const apiRouter = require('./server/router/api-router');
 const app = express();
+const key = require('./config/config');
 
+mongoose.connect(key.config);
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(cors());
