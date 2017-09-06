@@ -1,8 +1,11 @@
-const express = require('express');
+import express from 'express';
 const Router = express.Router();
 
-Router.get('/data', (req, res) => {
-    res.json('api hit');
+import { getString } from '../controllers/test-controller';
+
+Router.get('/data', async (req, res) => {
+    let data = await getString();
+    res.json(data);
 });
 
 module.exports = Router;

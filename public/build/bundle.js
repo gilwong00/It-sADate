@@ -12749,9 +12749,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Greeter = function Greeter() {
     return _react2.default.createElement(
-        'div',
-        null,
-        'Hello Moto'
+        "div",
+        { className: "test-style" },
+        "Hello Moto"
     );
 };
 
