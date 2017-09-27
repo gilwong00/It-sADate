@@ -2,7 +2,7 @@ import React from 'react';
 
 const Greeter = () => {
     return (
-        <div>Hello Moto</div>
+        <div className="test-style">Hello Moto</div>
     );
 }
 
