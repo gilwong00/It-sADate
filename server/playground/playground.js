@@ -3,11 +3,12 @@ import bcrypt from 'bcrypt';
 
 const saltRounds = 10;
 const password = 'ken';
-var hashedPassword = '';
+var hashed = '';
+
 
 bcrypt.hash(password, saltRounds, (err, hash) => {
   hashedPassword = hash;
-  console.log(hashedPassword);
+  return () => {
+    console.log(hashedPassword);
+  };
 });
-
-console.log(hashedPassword);

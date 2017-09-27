@@ -14,15 +14,11 @@ Router.get('/data', async (req, res) => {
 });
 
 Router.post('/create', async (req, res) => {
-
   let { name, email, password, username } = req.body;
-
-  let hash = await hashUserPassword(password);
-  console.log('this is the hashed pass', hash);
-  // const user = await new User({
-  //   name, email, password, username
-  // }).save();
-  // res.json(user);
+  const user = await new User({
+    name, email, password, username
+  }).save();
+  res.json(user);
 });
 
 
