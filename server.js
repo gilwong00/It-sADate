@@ -5,15 +5,20 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const apiRouter = require('./server/router/api-router');
+
 const app = express();
 const key = require('./config/config');
 
-mongoose.connect(key.config);
+mongoose.connect(key.config());
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+config.config();
+
+//mongo connection
+mongoose.connect(process.env.MONGOOSE_CONNECT);
 
 app.use('/api', apiRouter);
 
