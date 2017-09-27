@@ -3,3 +3,25 @@
 .test-style {
     color: $main;
 }
+
+#login-section-signIn {
+    form {
+        width: 50%;
+        background-color: #d3d3d3;
+        margin-top: 5%;
+    }
+
+    button {
+        margin-top: 2%;
+        position: relative;
+    }
+}
+
+#login-section-signUp {
+    form {
+        width: 50%;
+        background-color: #d3d3d3;
+        margin-top: 5%;
+    }
+
+}

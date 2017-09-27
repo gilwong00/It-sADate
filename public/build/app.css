@@ -1,4 +1,18 @@
 .test-style {
   color: purple; }
 
+#login-section-signIn form {
+  width: 50%;
+  background-color: #d3d3d3;
+  margin-top: 5%; }
+
+#login-section-signIn button {
+  margin-top: 2%;
+  position: relative; }
+
+#login-section-signUp form {
+  width: 50%;
+  background-color: #d3d3d3;
+  margin-top: 5%; }
+
 /*# sourceMappingURL=app.css.map*/
