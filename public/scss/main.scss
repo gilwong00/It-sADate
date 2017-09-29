@@ -1,7 +1,7 @@
 @import "colors";
 
-.test-style {
-    color: $main;
+body{
+    background-color: $main-body;
 }
 
 #login-section-signIn {
@@ -23,5 +23,17 @@
         background-color: #d3d3d3;
         margin-top: 5%;
     }
+}
 
+nav {
+    border: solid 2px;
+    background-color: lightgreen;
+
+    div.navbar-nav.pull-right {
+        margin-top: .7%;
+    }
+
+    li {
+        list-style: none;
+    }
 }

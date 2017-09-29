@@ -40,12 +40,6 @@ class Login extends Component {
     render() {
         return (
             <div className="col-md-12 col-lg-12">
-                <div className="col-md-6 text-center">
-                    <button className="btn btn-sm btn-success" onClick={this.showSignIn}>Sign In</button>
-                </div>
-                <div className="col-md-6 text-center">
-                    <button className="btn btn-sm btn-warning" onClick={this.showSignUp}>Sign Up</button>
-                </div>
                 <div>
                     {this.toggleForms()}
                 </div>

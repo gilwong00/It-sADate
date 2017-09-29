@@ -1,5 +1,5 @@
-.test-style {
-  color: purple; }
+body {
+  background-color: #42d4f4; }
 
 #login-section-signIn form {
   width: 50%;
@@ -14,5 +14,13 @@
   width: 50%;
   background-color: #d3d3d3;
   margin-top: 5%; }
+
+nav {
+  border: solid 2px;
+  background-color: lightgreen; }
+  nav div.navbar-nav.pull-right {
+    margin-top: .7%; }
+  nav li {
+    list-style: none; }
 
 /*# sourceMappingURL=app.css.map*/
