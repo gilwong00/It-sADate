@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import registerationReducer from './Registeration/registeration-reducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+	registeration: registerationReducer
 });
 
 export default rootReducer;

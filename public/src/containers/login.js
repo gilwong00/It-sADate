@@ -9,11 +9,18 @@ class Login extends Component {
         super(props)
 
         this.state = {
-            showSignUp: false
+            showSignUp: false,
+            showSignIn: false
         }
         this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
-        this.showSignUp = this.showSignUp.bind(this);
-        this.showSignIn = this.showSignIn.bind(this);
+    }
+    componentDidMount() {
+        if (this.props.match.params.key.toLowerCase() === "login") {
+            this.setState({ showSignIn: true, showSignUp:false });
+        }
+        else {
+            this.setState({ showSignUp: true, showSignIn: false });
+        }
     }
     onSignInSubmit(event) {
         event.preventDefault();
@@ -22,12 +29,6 @@ class Login extends Component {
     onSignUpSubmit(event) {
         event.preventDefault();
         console.log('Sign up')
-    }
-    showSignUp() {
-        this.setState({ showSignUp: true })
-    }
-    showSignIn() {
-        this.setState({ showSignUp: false })
     }
     toggleForms() {
         if (this.state.showSignUp === false) {
@@ -48,4 +49,8 @@ class Login extends Component {
     }
 }
 
-export default Login;
+function mapStateToProps(state) {
+    return {signIn: state.registeration}
+} 
+
+export default connect(mapStateToProps)(Login);

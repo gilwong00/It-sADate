@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: 'source-map',
-    entry: './public/src/index.js',
+    entry: ['babel-polyfill', './public/src/index.js'],
     output: {
         path: path.resolve(__dirname, './public/build'),
         filename: 'bundle.js',
