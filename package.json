@@ -9,6 +9,7 @@
     "playground": "nodemon -w server server/playground/playground.js --exec babel-node --presets es2015"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",

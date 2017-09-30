@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SignUp = () => {
+const SignUp = ({ signUp }) => {
     return (
         <div id="login-section-signUp" className="col-md-12 col-lg-12 col-xl-12">
-            <form className="container">
+            <form className="container" onSubmit={signUp}>
                 <div className="col-md-12 col-lg-12 form-group">
                     <div className="col-md-12 col-lg-12">
                         <label>Name:</label>

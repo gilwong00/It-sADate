@@ -12,15 +12,17 @@ class Welcome extends Component {
             showSignUp: false,
             showSignIn: false
         }
+        this.onSignInSubmit = this.onSignInSubmit.bind(this);
+        this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
     }
     componentDidMount() {
         console.log(this.props.signIn)
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.signIn !== this.props.signIn) {
-           
+
             let { signIn, signUp } = nextProps.signIn;
-    
+
             if (signIn) {
                 this.setState({ showSignIn: signIn, showSignUp: signUp });
             }
@@ -32,12 +34,20 @@ class Welcome extends Component {
             return false;
         }
     }
+    onSignInSubmit(event) {
+        event.preventDefault();
+        console.log('sign in submit');
+    }
+    onSignUpSubmit(event) {
+        event.preventDefault();
+        console.log('sign up submit')
+    }
     toggleForms() {
         if (this.state.showSignIn) {
-            return <SignIn submit={this.onSignUpSubmit}/>
+            return <SignIn signIn={this.onSignInSubmit}/>
         }
         else if(this.state.showSignUp) {
-            return <SignUp />
+            return <SignUp signUp={this.onSignUpSubmit}/>
         }
         else {
             return false;
@@ -59,7 +69,7 @@ class Welcome extends Component {
 }
 
 function mapStateToProps(state) {
-    return { signIn: state.registeration }
+    return { signIn: state.registration }
 }
 
 export default connect(mapStateToProps)(Welcome);
