@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SignIn from '../Login/sign-in';
-import SignUp from '../Login/sign-up';
+import SignIn from '../components/Login/sign-in';
+import SignUp from '../components/Login/sign-up';
 
 class Welcome extends Component {
     constructor(props) {
@@ -57,7 +57,7 @@ class Welcome extends Component {
         //will need to style this
         return(
             <div className="col-md-12 col-lg-12">
-                <h1 className="text-center">Welcome To the App</h1>
+                <h1 className="text-center">Welcome to It's A Date!</h1>
 
                 <div className="col-md-12 col-lg-12">
                     {this.toggleForms()}

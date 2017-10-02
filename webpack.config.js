@@ -3,13 +3,13 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: 'source-map',
-    entry: ['babel-polyfill', './public/src/index.js'],
+    entry: './public/src/index.js',
     output: {
         path: path.resolve(__dirname, './public/build'),
         filename: 'bundle.js',
         publicPath: '/build'
     },
-    watch: true,
+    //watch: true,
     module: {
         rules: [
             {
@@ -22,7 +22,8 @@ module.exports = {
                 ],
                 loader: "babel-loader",
                 options: {
-                    presets: ['es2015', 'react', 'stage-0']
+                    presets: ['es2015', 'react', 'stage-3'],
+                    plugins: ['transform-runtime', 'transform-async-to-generator', 'transform-regenerator']
                 }
             },
             {

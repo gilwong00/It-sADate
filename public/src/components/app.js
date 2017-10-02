@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //importing Components
 import Header from '../containers/header';
-import Welcome from './Welcome/Welcome';
+import Welcome from '../containers/welcome';
 
 const App = () => {
     return(
