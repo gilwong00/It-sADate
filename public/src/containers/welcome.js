@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import SignIn from '../components/Login/sign-in';
 import SignUp from '../components/Login/sign-up';
@@ -10,7 +11,11 @@ class Welcome extends Component {
 
         this.state = {
             showSignUp: false,
-            showSignIn: false
+            showSignIn: false,
+            name: "",
+            email: "",
+            userName: "",
+            password: ""
         }
         this.onSignInSubmit = this.onSignInSubmit.bind(this);
         this.onSignUpSubmit = this.onSignUpSubmit.bind(this);
@@ -40,14 +45,26 @@ class Welcome extends Component {
     }
     onSignUpSubmit(event) {
         event.preventDefault();
-        console.log('sign up submit')
+        let newUserData = {
+            Name: document.getElementById("signUp-Name").value,
+            Email: document.getElementById("signUp-Email").value,
+            UserName: document.getElementById("signUp-UserName").value,
+            Password: document.getElementById("signUp-Password").value
+        }
+
+        let isValidUser = _.isEmpty(newUserData);
+        
+        if(!isValidUser) {
+            console.log('success')
+        }
+
     }
     toggleForms() {
         if (this.state.showSignIn) {
-            return <SignIn signIn={this.onSignInSubmit}/>
+            return <SignIn signIn={this.onSignInSubmit} />
         }
         else if(this.state.showSignUp) {
-            return <SignUp signUp={this.onSignUpSubmit}/>
+            return <SignUp signUp={this.onSignUpSubmit} />
         }
         else {
             return false;

@@ -1,7 +1,5 @@
 import express from 'express';
 import User from '../models/users';
-import bcrypt from 'bcrypt';
-import { hashUserPassword } from '../utilities/HashPassword';
 const Router = express.Router();
 
 import * as UserController from '../controllers/user-controller';
@@ -14,14 +12,6 @@ Router.get('/data', async (req, res) => {
 });
 
 Router.post('/create', UserController.createUser);
-
-// Router.post('/create', async (req, res) => {
-//   let { name, email, password, username } = req.body;
-//   const user = await new User({
-//     name, email, password, username
-//   }).save();
-//   res.json(user);
-// });
 
 Router.post('/login', UserController.login)
 
