@@ -23,4 +23,6 @@ Router.post('/create', UserController.createUser);
 //   res.json(user);
 // });
 
+Router.post('/login', UserController.login)
+
 module.exports = Router;
