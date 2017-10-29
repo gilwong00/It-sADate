@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import axios from 'axios';
+import sweetalert from 'sweetalert';
 
 import SignIn from '../components/Login/sign-in';
 import SignUp from '../components/Login/sign-up';
@@ -23,10 +25,10 @@ class Welcome extends Component {
     componentDidMount() {
         console.log(this.props.signIn)
     }
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.signIn !== this.props.signIn) {
+    componentWillReceiveProps(newProps) {
+        if (newProps.signIn !== this.props.signIn) {
 
-            let { signIn, signUp } = nextProps.signIn;
+            let { signIn, signUp } = newProps.signIn;
 
             if (signIn) {
                 this.setState({ showSignIn: signIn, showSignUp: signUp });
@@ -45,19 +47,30 @@ class Welcome extends Component {
     }
     onSignUpSubmit(event) {
         event.preventDefault();
-        let newUserData = {
+
+        let newUser = {
             Name: document.getElementById("signUp-Name").value,
             Email: document.getElementById("signUp-Email").value,
             UserName: document.getElementById("signUp-UserName").value,
             Password: document.getElementById("signUp-Password").value
         }
 
-        let isValidUser = _.isEmpty(newUserData);
-        
-        if(!isValidUser) {
-            console.log('success')
-        }
+        //checking to see if any required parameter is empty
+        let isValidUser = _.isEmpty(newUser);
 
+        if (!isValidUser) {
+            //call sign up api
+            axios.post("/api/create", newUser).then(response => {
+                if (response.status = 200) {
+                    //cache token and then redirect to homepage
+                    this.props.history.push("/Home");
+                }
+                else {
+                    //change this to a sweetalert
+                    alert("error creating new user");
+                }
+            });
+        }
     }
     toggleForms() {
         if (this.state.showSignIn) {

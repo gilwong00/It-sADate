@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //importing Components
 import Header from '../containers/header';
 import Welcome from '../containers/welcome';
+import HomePage from '../containers/home-page';
 
 const App = () => {
     return(
@@ -12,6 +13,7 @@ const App = () => {
                 <Header />
                 <Switch>
                     <Route exact path="/" component={Welcome} />
+                    <Route path="/home" component={HomePage} />
                 </Switch>
             </div>
         </BrowserRouter>
