@@ -16,7 +16,8 @@ export const createUser = async(req, res) => {
             return console.error(err)
         }
         else {
-            res.json(newUser);
+            //res.json(newUser);
+            res.status(200).send("Success");
         }
     });
 };
@@ -25,7 +26,7 @@ export const login = async(req, res) => {
   let { username, password } = req.body;
   const user = await User.findOne({ username });
   if (compareUserPassword(password, user.password)) {
-    var token = signToken(user._id);
+    let token = signToken(user._id);
     res.status(200).send(token);
   } else {
     res.status(404).send("Invalid username or password");
