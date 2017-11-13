@@ -19,6 +19,11 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(webpackDevMiddleware(compiler, {
 	publicPath: webpackConfig.output.publicPath
 }));
+
+app.use(require("webpack-hot-middleware")(compiler, {
+    log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
+  }));
+  
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));

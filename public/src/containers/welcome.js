@@ -74,7 +74,7 @@ class Welcome extends Component {
         //will need to style this
         return(
             <div className="col-md-12 col-lg-12">
-                <h1 className="text-center">Welcome to It's A Date!</h1>
+                <h1 className="text-center">Welcome to It's Date!</h1>
 
                 <div className="col-md-12 col-lg-12">
                     {this.toggleForms()}
